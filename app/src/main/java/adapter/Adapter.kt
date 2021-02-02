@@ -20,9 +20,11 @@ class AdapterPokemon(private val pokemonList: AllPokemons.ListOfPokemons) : Recy
     override fun onBindViewHolder(holder: ViewHold, position: Int) {
         val currentItem = pokemonList.results[position]
         holder.name.text = currentItem.name
+        holder.url.text = currentItem.url
     }
 
     class ViewHold(itemView: View): RecyclerView.ViewHolder(itemView){
         val name: TextView = itemView.findViewById(R.id.name_pokemon)
+        val url: TextView = itemView.findViewById(R.id.url_text)
     }
 }

@@ -19,4 +19,5 @@ interface Repository {
 
     @GET("api/v2/pokemon/{id}")
     fun getPokemonList(@Path("id") id: Int): Call<Pokemon>
+
 }
