@@ -6,19 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import domain.Pokemon
+import domain.AllPokemons
 
-class AdapterPokemon(private val pokemonList: List<Pokemon>) : RecyclerView.Adapter<AdapterPokemon.ViewHold>() {
+class AdapterPokemon(private val pokemonList: AllPokemons.ListOfPokemons) : RecyclerView.Adapter<AdapterPokemon.ViewHold>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHold {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_card_pokemon, parent, false)
         return ViewHold(itemView)
     }
 
-    override fun getItemCount(): Int = pokemonList.size
+    override fun getItemCount(): Int = pokemonList.results.size
 
     override fun onBindViewHolder(holder: ViewHold, position: Int) {
-        val currentItem = pokemonList[position]
+        val currentItem = pokemonList.results[position]
         holder.name.text = currentItem.name
     }
 
